@@ -1,97 +1,228 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# react-native-country-picker
 
-# Getting Started
+A highly customizable country picker component for React Native with search, theming, localization, and orientation support.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- Full-screen modal or bottom sheet presentation
+- Search functionality with customizable filtering
+- Localized country names (English, German, French, Spanish, Chinese, and more)
+- Light and dark theme support with full customization
+- Calling code mode for phone number inputs
+- Auto-select by device region or IP address
+- Orientation-aware layouts
+- Fully typed with TypeScript
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Installation
 
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+```bash
+npm install react-native-country-picker
+# or
+yarn add react-native-country-picker
 ```
 
-## Step 2: Build and run your app
+### Peer Dependencies
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+This library requires the following peer dependencies:
 
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+npm install react-native-safe-area-context react-native-svg
 ```
 
-### iOS
+## Usage
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+### Basic Usage
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+```tsx
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { CountryPicker, Country } from 'react-native-country-picker';
 
-```sh
-bundle install
+const App = () => {
+  const [country, setCountry] = useState<Country | null>(null);
+
+  return (
+    <View style={{ flex: 1, padding: 20 }}>
+      <CountryPicker
+        selectedCountry={country}
+        onSelectCountry={setCountry}
+        placeholder="Select a country"
+      />
+    </View>
+  );
+};
 ```
 
-Then, and every time you update your native dependencies, run:
+### Calling Code Mode (Phone Input)
 
-```sh
-bundle exec pod install
+```tsx
+<CountryPicker
+  callingCodeMode
+  showFlagInCallingCodeMode
+  selectedCountry={country}
+  onSelectCountry={setCountry}
+  placeholder="+1"
+/>
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### Full-Screen Mode
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+```tsx
+<CountryPicker
+  fullScreen
+  selectedCountry={country}
+  onSelectCountry={setCountry}
+  headerTitle="Select Country"
+/>
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### With Custom Theme
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```tsx
+<CountryPicker
+  selectedCountry={country}
+  onSelectCountry={setCountry}
+  theme={{
+    primaryColor: '#007AFF',
+    backgroundColor: '#FFFFFF',
+    textColor: '#333333',
+    borderColor: '#DDDDDD',
+  }}
+/>
+```
 
-## Step 3: Modify your app
+### Filtered Countries
 
-Now that you have successfully run the app, let's make changes!
+```tsx
+<CountryPicker
+  selectedCountry={country}
+  onSelectCountry={setCountry}
+  preferredCountries={['US', 'GB', 'CA']}
+  excludeCountries={['RU', 'CN']}
+/>
+```
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Localization
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```tsx
+<CountryPicker
+  selectedCountry={country}
+  onSelectCountry={setCountry}
+  locale="de" // German country names
+/>
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## Props
 
-## Congratulations! :tada:
+### Core Props
 
-You've successfully run and modified your React Native App. :partying_face:
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `onSelectCountry` | `(country: Country) => void` | - | Callback when a country is selected |
+| `selectedCountry` | `Country \| null` | - | Currently selected country |
+| `placeholder` | `string` | - | Placeholder text for the picker field |
+| `fullScreen` | `boolean` | `false` | Show modal in fullscreen mode |
+| `disabled` | `boolean` | `false` | Disable the picker |
+| `autoSelectByDeviceRegion` | `boolean` | `false` | Auto-select based on device region |
+| `autoSelectByIP` | `boolean` | `false` | Auto-select based on IP address |
 
-### Now what?
+### Calling Code Mode
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `callingCodeMode` | `boolean` | `false` | Display calling code instead of country name |
+| `showFlagInCallingCodeMode` | `boolean` | `true` | Show flag with calling code |
+| `showCountryCodeInCallingCodeMode` | `boolean` | `false` | Show country code (e.g., "US") |
+| `callingCodeTextStyle` | `TextStyle` | - | Style for calling code text |
 
-# Troubleshooting
+### Countries Data
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `countries` | `Country[]` | - | Custom countries array |
+| `excludeCountries` | `string[]` | - | Country codes to exclude |
+| `includeCountries` | `string[]` | - | Only show these country codes |
+| `preferredCountries` | `string[]` | - | Country codes to show at top |
+| `filterCountries` | `(countries, query) => Country[]` | - | Custom filter function |
 
-# Learn More
+### Locale
 
-To learn more about React Native, take a look at the following resources:
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `locale` | `SupportedLocale` | Device locale | Language for country names |
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Callbacks
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `onOpen` | `() => void` | Called when modal opens |
+| `onClose` | `() => void` | Called when modal closes |
+| `onSearch` | `(query: string) => void` | Called when search text changes |
+
+### Theme
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `theme` | `CountryPickerTheme` | Theme object for customization |
+
+### Styling Props
+
+The component offers extensive styling options for all visual elements. See the TypeScript types for full details.
+
+## Types
+
+### Country
+
+```typescript
+interface Country {
+  code: string;           // ISO country code (e.g., "US")
+  name: string;           // Country name (localized)
+  callingCode: string;    // International calling code (e.g., "+1")
+  flag: string;           // Base64 encoded flag image
+  currency: string;       // Currency code (e.g., "USD")
+  region: string;         // Geographic region (e.g., "Americas")
+}
+```
+
+### CountryPickerTheme
+
+```typescript
+interface CountryPickerTheme {
+  primaryColor?: string;
+  backgroundColor?: string;
+  secondaryBackgroundColor?: string;
+  overlayColor?: string;
+  textColor?: string;
+  secondaryTextColor?: string;
+  placeholderColor?: string;
+  borderColor?: string;
+  separatorColor?: string;
+}
+```
+
+## Exports
+
+The library exports the following:
+
+### Components
+- `CountryPicker` - Main picker component
+- `SearchInput` - Search input component
+- `RadioButton` - Radio button component
+- `ModalHeader` - Modal header component
+- `CountryItem` - Country list item component
+- `Separator` - List separator component
+
+### HOCs & Hooks
+- `withOrientation` - HOC for orientation-aware components
+- `useOrientation` - Hook for current orientation
+- `useSafeAreaDimensions` - Hook for safe area dimensions
+- `OrientationWrapper` - Wrapper component for orientation context
+
+### Icons
+- `ArrowDownIcon`
+- `CloseIcon`
+- `SearchIcon`
+
+## License
+
+MIT

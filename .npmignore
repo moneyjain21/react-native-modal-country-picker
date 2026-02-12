@@ -1,0 +1,48 @@
+# Development files
+.vscode/
+.idea/
+*.log
+
+# Example app
+App.tsx
+index.js
+app.json
+metro.config.js
+babel.config.js
+
+# iOS/Android native folders (example app only)
+ios/
+android/
+
+# Test files
+__tests__/
+__fixtures__/
+__mocks__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+coverage/
+jest.config.js
+
+# TypeScript source maps (if not needed)
+*.map
+
+# Git
+.git/
+.gitignore
+
+# Misc
+.DS_Store
+*.tgz
+node_modules/
+.env*
+
+# Config files not needed in package
+tsconfig.json
+tsconfig.build.json
+.eslintrc*
+.prettierrc*
+Gemfile*
+.ruby-version
+.watchmanconfig
