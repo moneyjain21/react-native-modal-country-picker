@@ -37,10 +37,10 @@ yarn add react-native-modal-country-picker
 
 ### Peer Dependencies
 
-This library requires the following peer dependencies:
+This library requires the following peer dependency:
 
 ```bash
-npm install react-native-safe-area-context react-native-svg
+npm install react-native-safe-area-context
 ```
 
 ## Usage
@@ -126,6 +126,17 @@ const App = () => {
 />
 ```
 
+### Auto-Select with Default Fallback
+
+```tsx
+<CountryPicker
+  selectedCountry={country}
+  onSelectCountry={setCountry}
+  autoSelectByIP
+  defaultCountry="US" // Fallback if IP detection fails
+/>
+```
+
 ## Props
 
 ### Core Props
@@ -139,6 +150,7 @@ const App = () => {
 | `disabled` | `boolean` | `false` | Disable the picker |
 | `autoSelectByDeviceRegion` | `boolean` | `false` | Auto-select based on device region |
 | `autoSelectByIP` | `boolean` | `false` | Auto-select based on IP address |
+| `defaultCountry` | `string` | - | Default country code (e.g., "US") as fallback when auto-detection fails |
 
 ### Calling Code Mode
 
@@ -179,9 +191,85 @@ const App = () => {
 |------|------|-------------|
 | `theme` | `CountryPickerTheme` | Theme object for customization |
 
-### Styling Props
+### Picker Field Styling
 
-The component offers extensive styling options for all visual elements. See the TypeScript types for full details.
+| Prop | Type | Description |
+|------|------|-------------|
+| `containerStyle` | `ViewStyle` | Style for the outer container |
+| `pickerFieldStyle` | `ViewStyle` | Style for the picker field/button |
+| `selectedTextStyle` | `TextStyle` | Style for the selected country text |
+| `placeholderTextStyle` | `TextStyle` | Style for the placeholder text |
+| `dropdownIconStyle` | `ViewStyle` | Style for the dropdown icon container |
+| `dropdownIcon` | `ReactNode` | Custom dropdown icon |
+| `selectedFlagStyle` | `ImageStyle` | Style for the selected flag |
+| `renderSelectedCountry` | `(country: Country) => ReactNode` | Custom render for selected country |
+
+### Modal Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `modalAnimationType` | `'none' \| 'slide' \| 'fade'` | `'slide'` | Modal animation type |
+| `modalContainerStyle` | `ViewStyle` | - | Style for modal container (fullscreen) |
+| `bottomSheetStyle` | `ViewStyle` | - | Style for bottom sheet container |
+| `bottomSheetHeight` | `number` | `0.75` | Height percentage for bottom sheet (0-1) |
+| `overlayStyle` | `ViewStyle` | - | Style for the overlay backdrop |
+| `closeOnOverlayPress` | `boolean` | `true` | Close modal when overlay is pressed |
+
+### Modal Header Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `headerTitle` | `string` | - | Custom title text for the modal header |
+| `headerStyle` | `ViewStyle` | - | Style for the header container |
+| `headerTitleStyle` | `TextStyle` | - | Style for the header title text |
+| `showCloseButton` | `boolean` | `true` | Whether to show the close button |
+| `closeButtonStyle` | `ViewStyle` | - | Style for the close button |
+| `closeButtonTextStyle` | `TextStyle` | - | Style for close button text |
+| `closeButtonText` | `string` | - | Text for close button (e.g., "Done") |
+| `closeButtonIcon` | `ReactNode` | - | Custom close button icon |
+| `showHandle` | `boolean` | `false` | Show drag handle for bottom sheet |
+| `handleStyle` | `ViewStyle` | - | Style for the drag handle |
+| `closeIconSize` | `number` | `24` | Size of the close icon |
+| `renderHeader` | `(onClose: () => void) => ReactNode` | - | Custom header render function |
+
+### Search Input Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `showSearchInput` | `boolean` | `true` | Whether to show the search input |
+| `searchPlaceholder` | `string` | - | Placeholder text for search input |
+| `searchInputContainerStyle` | `ViewStyle` | - | Style for search input container |
+| `searchInputStyle` | `TextStyle` | - | Style for the search input |
+| `searchInputProps` | `TextInputProps` | - | Additional TextInput props |
+
+### Country List Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `listStyle` | `ViewStyle` | - | Style for the FlatList |
+| `listContentContainerStyle` | `ViewStyle` | - | Content container style for FlatList |
+| `flatListProps` | `FlatListProps<Country>` | - | Additional FlatList props |
+| `showSeparator` | `boolean` | `true` | Show separators between items |
+| `separatorColor` | `string` | - | Color for the separator |
+| `renderEmptyList` | `() => ReactNode` | - | Custom empty list component |
+| `emptyListText` | `string` | - | Text when list is empty |
+| `emptyListStyle` | `ViewStyle` | - | Style for empty list container |
+| `emptyListTextStyle` | `TextStyle` | - | Style for empty list text |
+
+### Country Item Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `showCallingCode` | `boolean` | `true` | Show calling code in country item |
+| `showFlag` | `boolean` | `true` | Show flag in country item |
+| `showRadioButton` | `boolean` | `true` | Show radio button |
+| `countryItemStyle` | `ViewStyle` | - | Style for country item container |
+| `countryNameStyle` | `TextStyle` | - | Style for country name text |
+| `countryFlagStyle` | `ImageStyle` | - | Style for flag in list item |
+| `radioButtonSize` | `number` | - | Size of the radio button |
+| `radioButtonColor` | `string` | - | Color when selected |
+| `radioButtonBorderColor` | `string` | - | Border color of radio button |
+| `renderCountryItem` | `(props) => ReactNode` | - | Custom render for country item |
 
 ## Types
 
@@ -232,10 +320,10 @@ The library exports the following:
 - `useSafeAreaDimensions` - Hook for safe area dimensions
 - `OrientationWrapper` - Wrapper component for orientation context
 
-### Icons
-- `ArrowDownIcon`
-- `CloseIcon`
-- `SearchIcon`
+### Icons (Base64 Encoded)
+- `ArrowDownIcon` - Base64 encoded string
+- `CloseIcon` - Base64 encoded string
+- `SearchIcon` - Base64 encoded string
 
 ## License
 
