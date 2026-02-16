@@ -93,7 +93,7 @@ const strings: Record<SupportedLocale, LocaleStrings> = {
     callingCodePlaceholder: 'Kod',
     callingCodeHeaderTitle: 'Wybierz kod kraju',
   },
-  ua: {
+  uk: {
     placeholder: 'Виберіть країну',
     headerTitle: 'Виберіть країну',
     searchPlaceholder: 'Шукати країни...',
@@ -102,7 +102,7 @@ const strings: Record<SupportedLocale, LocaleStrings> = {
     callingCodePlaceholder: 'Код',
     callingCodeHeaderTitle: 'Виберіть код країни',
   },
-  cz: {
+  cs: {
     placeholder: 'Vyberte zemi',
     headerTitle: 'Vyberte zemi',
     searchPlaceholder: 'Hledat země...',
@@ -120,7 +120,7 @@ const strings: Record<SupportedLocale, LocaleStrings> = {
     callingCodePlaceholder: 'Kode',
     callingCodeHeaderTitle: 'Vælg landekode',
   },
-  by: {
+  be: {
     placeholder: 'Выберыце краіну',
     headerTitle: 'Выберыце краіну',
     searchPlaceholder: 'Шукаць краіны...',
@@ -147,7 +147,7 @@ const strings: Record<SupportedLocale, LocaleStrings> = {
     callingCodePlaceholder: 'Код',
     callingCodeHeaderTitle: 'Изберете код на държава',
   },
-  cn: {
+  'zh-hans': {
     placeholder: '选择国家',
     headerTitle: '选择国家',
     searchPlaceholder: '搜索国家...',
@@ -156,7 +156,7 @@ const strings: Record<SupportedLocale, LocaleStrings> = {
     callingCodePlaceholder: '区号',
     callingCodeHeaderTitle: '选择国家区号',
   },
-  zh: {
+  'zh-hant': {
     placeholder: '選擇國家',
     headerTitle: '選擇國家',
     searchPlaceholder: '搜尋國家...',
@@ -174,7 +174,7 @@ const strings: Record<SupportedLocale, LocaleStrings> = {
     callingCodePlaceholder: '코드',
     callingCodeHeaderTitle: '국가 코드 선택',
   },
-  jp: {
+  ja: {
     placeholder: '国を選択',
     headerTitle: '国を選択',
     searchPlaceholder: '国を検索...',
@@ -183,7 +183,7 @@ const strings: Record<SupportedLocale, LocaleStrings> = {
     callingCodePlaceholder: 'コード',
     callingCodeHeaderTitle: '国コードを選択',
   },
-  ee: {
+  et: {
     placeholder: 'Vali riik',
     headerTitle: 'Vali riik',
     searchPlaceholder: 'Otsi riike...',

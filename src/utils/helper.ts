@@ -1,4 +1,4 @@
-import { getDeviceLocaleRaw } from './locale';
+import { getCountry } from 'react-native-localize';
 
 /**
  * Response from IP geolocation API
@@ -26,22 +26,14 @@ export const getCountryByIP = async (): Promise<string | null> => {
 
 /**
  * Get the device's country/region code (e.g., 'US', 'DE', 'IN')
- * Extracts the country code from locale strings like 'en_US', 'de_DE', 'en-GB'
+ * Uses react-native-localize for accurate device region detection
  */
 export const getDeviceCountryCode = (): string | null => {
-  const locale = getDeviceLocaleRaw();
-  
-  // Split by underscore or hyphen (e.g., 'en_US' or 'en-US')
-  const parts = locale.split(/[-_]/);
-  
-  // The country code is typically the second part and is 2 characters
-  if (parts.length >= 2) {
-    const countryCode = parts[1].toUpperCase();
-    // Validate it looks like a country code (2 uppercase letters)
-    if (/^[A-Z]{2}$/.test(countryCode)) {
-      return countryCode;
-    }
+  try {
+    const countryCode = getCountry();
+    return countryCode || null;
+  } catch (error) {
+    console.warn('Error getting device country code:', error);
+    return null;
   }
-  
-  return null;
 };

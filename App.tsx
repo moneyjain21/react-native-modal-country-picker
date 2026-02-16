@@ -70,11 +70,11 @@ function AppContent() {
 
           {/* Locale Support - Japanese (auto-translated UI) */}
           <Text style={[styles.sectionTitle, { color: colors.text.secondary }]}>
-            Japanese Locale (jp)
+            Japanese Locale (ja)
           </Text>
           <CountryPicker
             onSelectCountry={handleSelectCountry}
-            locale="jp"
+            locale="ja"
           />
 
           {/* Calling Code Mode - For Phone Number Inputs */}

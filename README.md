@@ -40,10 +40,10 @@ yarn add react-native-modal-country-picker
 This library requires the following peer dependencies:
 
 ```bash
-npm install react-native-safe-area-context react-native-svg
+npm install react-native-safe-area-context react-native-svg react-native-localize
 ```
 
-> **Note:** If you're using Expo, `react-native-svg` is included in the Expo SDK. For bare React Native projects, follow the [react-native-svg installation guide](https://github.com/software-mansion/react-native-svg#installation).
+> **Note:** If you're using Expo, `react-native-svg` and `react-native-localize` are available via `expo install`. For bare React Native projects, follow the installation guides for [react-native-svg](https://github.com/software-mansion/react-native-svg#installation) and [react-native-localize](https://github.com/zoontek/react-native-localize#setup).
 
 ## Usage
 
