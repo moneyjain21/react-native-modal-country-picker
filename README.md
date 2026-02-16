@@ -179,6 +179,9 @@ const App = () => {
 |------|------|---------|-------------|
 | `locale` | `SupportedLocale` | Device locale | Language for country names |
 
+**Supported Locales (ISO 639-1):**
+`en`, `da`, `ru`, `pl`, `uk`, `cs`, `be`, `pt`, `es`, `ro`, `bg`, `de`, `fr`, `nl`, `it`, `zh-hans`, `zh-hant`, `ko`, `et`, `ja`, `he`, `el`, `ar`, `tr`, `hu`
+
 ### Callbacks
 
 | Prop | Type | Description |
