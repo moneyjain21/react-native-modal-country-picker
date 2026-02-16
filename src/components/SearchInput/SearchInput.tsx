@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, TextInput, TouchableOpacity } from 'react-native';
 
 import { useTheme } from '../../utils';
 import { SearchIcon, CloseIcon } from '../../assets';
@@ -41,10 +41,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
     return (
       <View style={styles.searchIconContainer}>
         {searchIcon || (
-          <Image
-            source={{ uri: SearchIcon }}
-            style={{ width: iconSize, height: iconSize, tintColor: resolvedIconColor }}
-          />
+          <SearchIcon size={iconSize} color={resolvedIconColor} />
         )}
       </View>
     );
@@ -56,10 +53,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
     return (
       <TouchableOpacity onPress={handleClear} style={styles.clearButton}>
         {clearIcon || (
-          <Image
-            source={{ uri: CloseIcon }}
-            style={{ width: iconSize, height: iconSize, tintColor: resolvedIconColor }}
-          />
+          <CloseIcon size={iconSize} color={resolvedIconColor} />
         )}
       </TouchableOpacity>
     );

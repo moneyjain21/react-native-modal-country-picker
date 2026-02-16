@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import { useTheme } from '../../utils';
 import { CloseIcon } from '../../assets';
@@ -54,10 +54,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
     // Default: CloseIcon
     return (
       <TouchableOpacity onPress={onClose} style={[styles.closeButton, closeButtonStyle]}>
-        <Image
-          source={{ uri: CloseIcon }}
-          style={{ width: closeIconSize, height: closeIconSize, tintColor: buttonColor }}
-        />
+        <CloseIcon size={closeIconSize} color={buttonColor} />
       </TouchableOpacity>
     );
   };

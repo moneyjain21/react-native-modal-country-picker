@@ -42,10 +42,6 @@ export const styles = StyleSheet.create({
   dropdownIcon: {
     marginLeft: 8,
   },
-  dropdownIconImage: {
-    width: 24,
-    height: 24,
-  },
 
 
   // Modal

@@ -33,3 +33,5 @@ export type {
   OrientationHOCOptions,
 } from './OrientationHOC';
 
+// Types - Icons
+export type { ArrowDownIconProps, CloseIconProps, SearchIconProps } from '../assets';

@@ -37,11 +37,13 @@ yarn add react-native-modal-country-picker
 
 ### Peer Dependencies
 
-This library requires the following peer dependency:
+This library requires the following peer dependencies:
 
 ```bash
-npm install react-native-safe-area-context
+npm install react-native-safe-area-context react-native-svg
 ```
+
+> **Note:** If you're using Expo, `react-native-svg` is included in the Expo SDK. For bare React Native projects, follow the [react-native-svg installation guide](https://github.com/software-mansion/react-native-svg#installation).
 
 ## Usage
 
@@ -320,10 +322,14 @@ The library exports the following:
 - `useSafeAreaDimensions` - Hook for safe area dimensions
 - `OrientationWrapper` - Wrapper component for orientation context
 
-### Icons (Base64 Encoded)
-- `ArrowDownIcon` - Base64 encoded string
-- `CloseIcon` - Base64 encoded string
-- `SearchIcon` - Base64 encoded string
+### Icons (SVG Components)
+- `ArrowDownIcon` - Dropdown arrow icon component
+- `CloseIcon` - Close/X icon component
+- `SearchIcon` - Search/magnifying glass icon component
+
+Each icon accepts the following props:
+- `size?: number` - Icon size (default: 24)
+- `color?: string` - Icon color (defaults to theme color)
 
 ## License
 
