@@ -23,6 +23,10 @@ export { ArrowDownIcon, CloseIcon, SearchIcon } from './assets';
 // Utilities
 export * from './utils';
 
+// Native Module
+export { CountryLocale, isNativeModuleAvailable, clearCache } from './native';
+export type { LocaleInfo } from './native';
+
 // Types - Components
 export type {
   Country,

@@ -23,6 +23,9 @@ target 'countryPicker' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # Include the CountryLocale native module from the parent directory
+  pod 'react-native-modal-country-picker', :path => '../'
+
   post_install do |installer|
     react_native_post_install(
       installer,

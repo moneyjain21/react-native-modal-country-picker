@@ -1,4 +1,4 @@
-import { getCountry } from 'react-native-localize';
+import { getCountry } from '../native/CountryLocale';
 
 /**
  * Response from IP geolocation API
@@ -26,7 +26,7 @@ export const getCountryByIP = async (): Promise<string | null> => {
 
 /**
  * Get the device's country/region code (e.g., 'US', 'DE', 'IN')
- * Uses react-native-localize for accurate device region detection
+ * Uses native TurboModule for accurate device region detection
  */
 export const getDeviceCountryCode = (): string | null => {
   try {

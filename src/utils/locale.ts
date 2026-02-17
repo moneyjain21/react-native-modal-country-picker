@@ -1,4 +1,4 @@
-import { getLocales } from 'react-native-localize';
+import { getLocales } from '../native/CountryLocale';
 
 /**
  * Supported locale codes that match the keys in countries.json "name" object
