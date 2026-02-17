@@ -14,7 +14,7 @@ function AppContent() {
   const { colors, isDarkMode } = useTheme();
 
   const handleSelectCountry = (country: Country) => {
-    console.log('Selected country:', country.name, country.code);
+    // console.log('Selected country:', country.name, country.code);
   };
 
   return (
